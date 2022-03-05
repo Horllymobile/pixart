@@ -1,0 +1,24 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="menu">
+      <ion-icon name="grid-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="cart" *ngIf="carts | async as ct" replaceUrl= "true">
+      <ion-icon name="cart-outline"></ion-icon>
+      <ion-badge>{{ ct.length }}</ion-badge>
+    </ion-tab-button>
+
+    <ion-tab-button (click)="openMenu()">
+      <ion-icon name="cog-outline"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

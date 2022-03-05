@@ -1,0 +1,34 @@
+<ion-content  class="ion-padding">
+
+  <div class="form">
+    <ion-text class="ion-text-center" color="primary">
+      <h2>Register</h2>
+    </ion-text>
+
+    <form>
+
+      <ion-input type="email" class="ion-padding ion-margin-top" placeholder="Email"></ion-input>
+
+      <ion-input type="pasword" class="ion-padding ion-margin-top" placeholder="Password"></ion-input>
+
+      <ion-button type="submit" class="ion-margin-top"
+      color="primary" expand='block' fill="solid" size="large">
+        Sign in
+      </ion-button>
+    </form>
+
+    <ion-text class="ion-text-center" color="primary">
+      <p>Already have account? <a [routerLink]="['/login']">Login</a></p>
+    </ion-text>
+
+    <div class="ion-margin-top">
+      <ion-button (click)="signUpWithGoogle()" class="ion-margin-top" color="danger" expand='block' fill="outline" size="large">
+        <ion-icon name="logo-google"></ion-icon> Sign Up
+      </ion-button>
+      <ion-button (click)="guest()" class="ion-margin-top" color="dark" size="large" expand='block' fill="outline">
+        <ion-icon name="people-circle-outline"></ion-icon> Guest
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="medium">
+      <h3>Arts Collection</h3>
+    </ion-title>
+    <ion-buttons slot="end" >
+      <ion-button [disabled]="user?.isAnonymous" (click)="addArt()" fill="outline">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher> -->
+
+  <div>
+    <ion-searchbar debounce="500" animated placeholder="Search art collections" (ionChange)="search($event)"></ion-searchbar>
+  </div>
+
+  <ion-grid *ngIf="filteredList">
+    <ion-row>
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4" *ngFor="let item of filteredList" >
+        <app-art-item [artItem]="item"></app-art-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!filteredList">
+    <ion-row>
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 100px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 120px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 130px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 120px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 130px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" sizeSm="6" sizeLg="3" sizeMd="4">
+        <ion-card>
+          <ion-thumbnail style="width: 100%; height: 150px;">
+            <ion-skeleton-text animated style="width: 100%; height: 100%;"></ion-skeleton-text>
+          </ion-thumbnail>
+          <ion-card-title>
+            <ion-skeleton-text animated style="width: 100%; height: 30px;"></ion-skeleton-text>
+          </ion-card-title>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

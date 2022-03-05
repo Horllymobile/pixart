@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="close()" slot="start">
+      <ion-icon name="close" ></ion-icon>
+    </ion-buttons>
+    <ion-title>Add</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>{{ art?.title }} Item(s)</ion-label>
+    <ion-input type="number" name="item" [(ngModel)]="item" placeholder="Enter how many"></ion-input>
+  </ion-item>
+
+  <ion-button [disabled]="!item" class="ion-margin-top" expand="block" (click)="save(art, item)" fill="outline" color="success">Save</ion-button>
+</ion-content>

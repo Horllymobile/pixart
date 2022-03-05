@@ -1,0 +1,80 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Add Art
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-margin-top ion-margin-horizontal">
+
+  <div class="ion-margin-top ion-margin-horizontal" *ngIf="imageUrl === ''">
+    <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [containWithinAspectRatio]="containWithinAspectRatio"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="256"
+    [cropperMinWidth]="128"
+    [onlyScaleDown]="true"
+    [roundCropper]="false"
+    [canvasRotation]="canvasRotation"
+    [transform]="transform"
+    [alignImage]="'left'"
+    [style.display]="showCropper ? null : 'none'"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady($event)"
+    (loadImageFailed)="loadImageFailed()"
+  >
+    </image-cropper>
+
+    <ion-button color="warning" (click)="uploadImage()" *ngIf="imageChangedEvent !== ''" >Upload</ion-button>
+    <ion-button (click)="resetImage()" *ngIf="imageChangedEvent !== ''" color="success" >Reset</ion-button>
+    <ion-button color="danger" (click)="imageChangedEvent = ''" *ngIf="imageChangedEvent !== ''" >Delete</ion-button>
+  </div>
+
+  <div class="ion-margin-top ion-margin-horizontal" *ngIf="imageUrl !== ''">
+    <img width="100%" [src]="imageUrl" alt="">
+    <div>
+      <ion-button (click)="imageUrl = ''" *ngIf="imageChangedEvent !== ''" color="success" >Reset</ion-button>
+    </div>
+  </div>
+
+  <div *ngIf="imageChangedEvent === ''" class="ion-margin-top" class="image-placeholder">
+    <!-- <label for="image">
+      <img src="../../../assets/placeholder.jpeg" alt="">
+    </label> -->
+    <input type="file" id="image" accept=".png, .jpg, .jpeg" class="ion-margin-horizontal" (change)="fileChangeEvent($event)">
+  </div>
+
+
+  <form [formGroup]="createArtForm" class="ion-margin-horizontal">
+
+    <ion-item>
+      <ion-label position="floating">
+        Title
+      </ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="floating">
+        Price
+      </ion-label>
+      <ion-input type="number" formControlName="price"></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top">
+      <ion-label position="floating">
+        Description
+      </ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" fill="solid" (click)="submit()" expand="block" size="large" color="success">Create</ion-button>
+  </form>
+
+</ion-content>

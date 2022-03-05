@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home">
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-x" *ngIf="cart">
+  <ion-list class="ion-padding-x">
+    <ion-list-header>
+      <ion-title>Cart Items</ion-title>
+    </ion-list-header>
+    <ion-item *ngFor="let item of cart" class="ion-margin-top">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item.img"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="ion-margin-start ">
+        <h2>{{ item.title }}</h2>
+        <form *ngIf="cart.length > 0" style="display: flex; justify-content: space-between;" class="ion-margin-top ion-margin-bottom">
+          <ion-button (click)="minusItem(item.id)"  fill="solid" color="warning"><ion-icon name="remove"></ion-icon></ion-button>
+            <input type="text" style="width: 20px;" name="count" [(ngModel)]="item.count">
+          <ion-button (click)="plusItem(item.id)" fill="solid" color="primary" ><ion-icon name="add"></ion-icon></ion-button>
+        </form>
+        <p>Author: <em>{{ item.author }}</em> </p>
+      </ion-label>
+      <ion-label class="ion-text-right">
+        <ion-text color="success">
+          <h2>{{ item.cartPrice | currency }}</h2>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="totalPrice > 0" class="ion-margin">
+    <ion-text color="success" style="text-align: right;" class="ion-text-right">
+      <h3>Total: {{ totalPrice | currency }}</h3>
+    </ion-text>
+  </div>
+
+  <div class="ion-padding" *ngIf="cart.length > 0">
+    <ion-button (click)="checkout()" expand="block" slot="end" color="success" size="medium" fill="outline">
+      <ion-icon slot="end" name="bag-check"></ion-icon>Check out
+    </ion-button>
+
+    <div class="ion-margin-top" style="display: flex; justify-content: space-between;">
+      <ion-button [routerLink]="['/tabs/home']" size="medium" class="" fill="outline">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="clear()" size="medium" fill="solid" color="danger">
+        <span style="color: white;" > <ion-icon slot="start" name="trash"></ion-icon> Clear </span>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

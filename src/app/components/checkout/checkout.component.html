@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()" slot="end" color="dark">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-margin">
+
+  <form class="ion-margin-horizontal">
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        First name
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        Last name
+      </ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        Email
+      </ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        Phone number
+      </ion-label>
+      <ion-input type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        Address line 1
+      </ion-label>
+      <ion-input type="text" placeholder="Appartment No, Street "></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-label position="floating">
+        Address line 2
+      </ion-label>
+      <ion-input type="text" placeholder="City, State, Country"></ion-input>
+    </ion-item>
+
+    <ion-button class="ion-margin-top" fill="solid" expand="block" size="large" color="success">Place order</ion-button>
+  </form>
+
+</ion-content>

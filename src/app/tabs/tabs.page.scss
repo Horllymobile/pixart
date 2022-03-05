@@ -1,0 +1,16 @@
+@import "./../../theme/variables.scss";
+
+ion-tab-bar {
+  // --background: transparent;
+  // --background-repeat: no-repeat;
+  // border-radius: 10% !important;
+}
+
+ion-tab-button {
+  // --color: white;
+  --padding-start: 20px;
+  // background: #2dd36f;
+  --background-focused: #2dd36f;
+  --ripple-color: #2dd36f;
+  --color-selected: #2dd36f;
+}

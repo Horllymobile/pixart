@@ -1,0 +1,79 @@
+
+
+<!-- <ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+
+    </ion-buttons>
+    <ion-title>{{ art?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<!-- <ion-back-button defaultHref="/tabs/home"></ion-back-button> -->
+<ion-content>
+  <ion-grid class="ion-no-padding" *ngIf="art">
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3">
+        <ion-img [src]="art.image"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col sizeLg="6" offsetLg="3">
+        <h4 class="ion-margin" style="display: flex; justify-content: space-between;">
+          <span class="ion-text-left ion-padding-end">{{ art.title }}</span>
+          <span class="ion-text-right">{{ art.price | currency }}</span>
+        </h4>
+        <div class="container ion-margin">
+          <ion-text>
+            <p class="" style="font-size:0.9em;">{{ art.description ?? '' }}</p>
+          </ion-text>
+
+          <div style="display: flex; justify-content: space-between;">
+            <div>
+              <ion-button (click)="close()" color="dark" size="medium" class="" fill="outline">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </ion-button>
+              <ion-button color="success" (click)="bookMark(art)" color="{{ art.bookmarked ? 'success' : 'secondary' }}" size="medium" class="" fill="outline">
+                <ion-icon name="bookmark"></ion-icon>
+              </ion-button>
+            </div>
+            <ion-button (click)="addToCart(art)" size="medium" fill="solid" color="success">
+              <ion-icon style="color: white;" slot="start" name="cart"></ion-icon>
+              <span style="color: white;" > Add to card</span>
+            </ion-button>
+          </div>
+
+          <div class="ion-margin-vertical">
+            <ion-list>
+              <ion-list-header>
+                <ion-text>
+                  <h3>Author</h3>
+                </ion-text>
+              </ion-list-header>
+              <ion-item >
+                <ion-label>
+                  <h3>Name: {{ art.author.firstName }} {{ art.author.lastName }}</h3>
+                  <p>Username: {{ art.author?.userName }}</p>
+                  <p>Email: {{ art.author.email }}</p>
+                  <!-- <p *ngIf="art.author?.phoneNumber">Phone number: {{ art.author?.phoneNumber }}</p> -->
+                </ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col sizeLg="6" offsetLg="3">
+        <ion-list>
+          <ion-item>Budjet: {{ movie.budget | currency }}</ion-item>
+          <ion-item>Revenue: {{ movie.revenue| currency }}</ion-item>
+          <ion-item>Runtime: &nbsp; <ion-badge>{{ movie.runtime }}</ion-badge> &nbsp; minutes</ion-item>
+          <ion-item>Popularity: {{ movie.popularity }}</ion-item>
+          <ion-item>Release Date: {{ movie.release_date | date}}</ion-item>
+          <ion-item>Rating: &nbsp; <ion-badge>{{ movie.vote_average }}</ion-badge></ion-item>
+          <ion-item>Vote: {{ movie.vote_count }}</ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row> -->
+  </ion-grid>
+</ion-content>

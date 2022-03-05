@@ -1,0 +1,35 @@
+<ion-content  class="ion-padding">
+
+  <div class="form">
+    <ion-text class="ion-text-center" color="primary">
+      <h2>Sign In</h2>
+    </ion-text>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginWithEmail()">
+
+      <ion-input type="email" class="ion-padding ion-margin-top" formControlName="email" placeholder="Email"></ion-input>
+
+      <ion-input type="pasword" class="ion-padding ion-margin-top" formControlName="password" placeholder="Password"></ion-input>
+
+      <ion-button type="submit" class="ion-margin-top" [disabled]="!loginForm.valid" (click)="loginWithEmail()"
+      color="primary" expand='block' fill="solid" size="large">
+        Sign in
+      </ion-button>
+    </form>
+
+    <ion-text class="ion-text-center" color="primary">
+      <p>Don't have account? <a [routerLink]="['/register']">Register</a></p>
+    </ion-text>
+
+    <div class="ion-margin-top">
+      <ion-button class="ion-margin-top" (click)="loginWithGoogle()" color="danger" expand='block' fill="outline" size="large">
+        <ion-icon name="logo-google"></ion-icon> Sign in
+      </ion-button>
+
+      <ion-button class="ion-margin-top" (click)="guest()" color="dark" size="large" expand='block' fill="outline">
+        <ion-icon name="people-circle-outline"></ion-icon> Guest
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>

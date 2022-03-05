@@ -1,0 +1,6 @@
+{
+	"appId": "com.horllymobile.app",
+	"appName": "pixart",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

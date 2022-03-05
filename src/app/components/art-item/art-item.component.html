@@ -1,0 +1,7 @@
+<ion-card *ngIf="artItem" (click)="viewArt(artItem)">
+  <ion-img [src]="artItem.image"></ion-img>
+  <ion-card-title class="ion-padding-horizontal" style="display: flex; justify-content: space-between;">
+    <h4 style="font-size: 0.7em;">{{ artItem.title }}</h4>
+    <p style="font-size: 0.7em;">{{ this.rating }}</p>
+  </ion-card-title>
+</ion-card>
